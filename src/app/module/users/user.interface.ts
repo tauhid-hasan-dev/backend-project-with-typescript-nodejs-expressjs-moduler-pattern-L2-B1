@@ -7,7 +7,7 @@ export type IUser = {
   password:string,
   role: IUserRoles,
   name:{
-    firstName: string
+    firstName: string,
     lastName: string
   },
   phoneNumber:string,

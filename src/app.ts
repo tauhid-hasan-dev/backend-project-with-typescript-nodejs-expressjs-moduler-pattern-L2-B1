@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
-import { UserRoutes } from './app/module/users/user.route'
+import router from './app/module/users/user.route'
+
 const app: Application = express()
 
 // cors
@@ -11,7 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // application routes
-app.use('/api/v1', UserRoutes)
+app.use('/api/v1', router)
 
 // Testing
 app.get('/', (req: Request, res: Response) => {

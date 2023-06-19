@@ -8,7 +8,7 @@ const createUser = async(user:IUser):Promise<IUser | null> => {
    if(!user.password){
     user.password = config.default_user_pass as string;
    }
-   const createdUser = User.create(user)
+   const createdUser = await User.create(user)
 
    if(!createUser){
     throw new Error('Failed! User could not be created')
@@ -17,6 +17,6 @@ const createUser = async(user:IUser):Promise<IUser | null> => {
    return createdUser;
 }
 
-export const userServices = {
+export const UserServices = {
     createUser,
 }

@@ -1,9 +1,11 @@
 import {  Model } from 'mongoose';
 
+export type IUserRoles = 'seller' | 'buyer';
+
 // 1. Create an interface representing a document in MongoDB.
 export type IUser = {
   password:string,
-  role: string,
+  role: IUserRoles,
   name:{
     firstName: string
     lastName: string

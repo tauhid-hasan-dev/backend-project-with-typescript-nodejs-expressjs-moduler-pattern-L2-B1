@@ -19,6 +19,10 @@ const userSchema = new Schema<IUser, UserModel>({
     address: { type: String, required: true},
     budget:{ type: Number, required: true},
     income:{ type: Number, required: true},
-  });
+  },
+  {
+    timestamps: true, // Mongodb will create 2 date(create and update) automatically in schema 
+  }
+  );
 
   export const User = model<IUser, UserModel>('User', userSchema);

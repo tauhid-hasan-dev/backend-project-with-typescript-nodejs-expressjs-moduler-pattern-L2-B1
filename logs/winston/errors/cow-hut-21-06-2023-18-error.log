@@ -1,0 +1,1 @@
+Wed Jun 21 2023 18:14:17 [ERROR-COW-HUT-ERROR!] error: Failed to connect to database The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.

@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\sucesses\\.2aec42f330b4a5833afe6131dea65e2cece2c4ce-audit.json",
+    "files": [
+        {
+            "date": 1687360457244,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\sucesses\\cow-hut-21-06-2023-18-success.log",
+            "hash": "3d83308f207da3585c920170e384862a1262dd25160587ca82a3d801d4601731"
+        }
+    ],
+    "hashType": "sha256"
+}

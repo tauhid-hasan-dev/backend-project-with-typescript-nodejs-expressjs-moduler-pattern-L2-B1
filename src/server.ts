@@ -4,6 +4,11 @@ import config from './config/index'
 import {logger, errorLogger} from './shared/logger'
 import { Server } from 'http';
 
+// we are handling uncaught exception error(synchronous error) here, because bootstrap is a async function
+process.on('uncaughtException', error => {
+  errorLogger.error(error);
+  process.exit(1);
+});
 
 
 let server: Server;
@@ -36,3 +41,11 @@ async function bootstrap() {
 }
 
 bootstrap()
+
+// if for any reason server crashed we can know the reason behind this
+process.on('SIGTERM', () => {
+  logger.info('SIGTERM is received');
+  if (server) {
+    server.close();
+  }
+});

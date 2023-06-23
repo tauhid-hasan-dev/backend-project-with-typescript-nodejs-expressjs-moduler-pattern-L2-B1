@@ -14,9 +14,9 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-/* app.use('/', ()=>{
-    throw new ApiError(400, 'ore baba re')
-}) */
+app.use('/', ()=>{
+    Promise.reject(new Error ('Unhandled Promise Rejection'))
+})
 
 // application routes
 app.use('/api/v1', userRouter)

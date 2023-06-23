@@ -1,6 +1,7 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application } from 'express'
 import cors from 'cors'
 import router from './app/module/users/user.route'
+import globalErrorHandler from './middlewares/globalErrorHandler'
 
 const app: Application = express()
 
@@ -14,9 +15,7 @@ app.use(express.urlencoded({ extended: true }))
 // application routes
 app.use('/api/v1', router)
 
-// Testing
-app.get('/', (req: Request, res: Response) => {
-  res.send('This is  a Backend for Online Cow Selling  for Eid Ul Adha...')
-})
+
+app.use(globalErrorHandler)
 
 export default app

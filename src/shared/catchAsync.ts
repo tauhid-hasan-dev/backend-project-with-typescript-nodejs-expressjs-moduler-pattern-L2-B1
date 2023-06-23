@@ -5,7 +5,8 @@ const catchAsync = (fn: RequestHandler) => {
         try{
            await fn(req, res, next)
         }catch(error){
-            console.log(error)
+            /* console.log(error) */
+            // in here we are sending the error to global error handler
             next(error)
         }
     }

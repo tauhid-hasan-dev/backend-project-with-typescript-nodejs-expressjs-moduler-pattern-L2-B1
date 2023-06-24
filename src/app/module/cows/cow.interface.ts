@@ -2,7 +2,7 @@ import {  Model } from 'mongoose';
 
 export type ILocations = "Dhaka" | "Chattogram" | "Barishal" | "Rajshahi" | "Sylhet" | "Comilla" | "Rangpur" | "Mymensingh";
 export type IBreeds = "Brahman" | "Nellore" | "Sahiwal" | "Gir" | "Indigenous" | "Tharparkar" | "Kankrej";
-
+export type ICategory = "Dairy" | "Beef" | "Dual Purpose"
 
 export type ICow = {
     name: string,
@@ -11,8 +11,8 @@ export type ICow = {
     location: ILocations,
     breed: IBreeds,
     weight: number,
-    label: string,
-    category: string,
+    label: 'for sale',
+    category: ICategory,
     seller:string
 }
 

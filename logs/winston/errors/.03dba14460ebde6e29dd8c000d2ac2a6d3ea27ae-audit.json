@@ -34,6 +34,26 @@
             "date": 1687550400293,
             "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-23-06-2023-23-error.log",
             "hash": "d7fcf0c753645b7ed29b28efd3ac043357cff9cf9d15f6cbcb570963425480a3"
+        },
+        {
+            "date": 1687555463204,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-24-06-2023-00-error.log",
+            "hash": "eabaceb409c6430fd324f57b062bb20d60ba1d008397dfa209171fa3cc70e2f0"
+        },
+        {
+            "date": 1687557739748,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-24-06-2023-01-error.log",
+            "hash": "0d6ebb67579d34f77f328aba589dd578d92832cbe3368a92e64d9d0dab3635f5"
+        },
+        {
+            "date": 1687561757694,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-24-06-2023-02-error.log",
+            "hash": "2818363e08fabf4a613479adfabbe98f254d49b918ea33701f194d236bb5a799"
+        },
+        {
+            "date": 1687605992391,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-24-06-2023-14-error.log",
+            "hash": "919f4b3e478b3643294db0f60fa3ebcb55e496bde12da2d7735e5b40c02ecf00"
         }
     ],
     "hashType": "sha256"

@@ -1,6 +1,8 @@
 import { Schema, model } from "mongoose";
 import { CowModel, ICow } from "./cow.interface";
 import { cowBreeds, cowCategories, cowLocations } from "./cow.constant";
+import ApiError from "../../../errors/ApiError";
+import httpStatus from "http-status";
 
 const cowSchema = new Schema<ICow, CowModel>({
     name:{
@@ -40,4 +42,15 @@ const cowSchema = new Schema<ICow, CowModel>({
   }
   );
 
+  // Duplicate error(seller)
+  cowSchema.pre('save', async function(next){
+    const isExit = await Cow.findOne({seller: this.seller});
+    if(isExit){
+        throw new ApiError(httpStatus.CONFLICT, 'This Cow is already exits')
+    }
+    next()
+  })
+
   export const Cow = model<ICow, CowModel>('Cow', cowSchema);
+
+  

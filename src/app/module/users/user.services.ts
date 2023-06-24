@@ -1,6 +1,6 @@
 
 import  config  from "../../../config";
-import ApiError from "../../../errors/handleApiError";
+import ApiError from "../../../errors/ApiError";
 import { IUser } from "./user.interface"
 import { User } from "./user.model"
 

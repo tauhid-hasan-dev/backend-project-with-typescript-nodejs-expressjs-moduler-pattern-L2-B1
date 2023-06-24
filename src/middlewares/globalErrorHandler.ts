@@ -2,9 +2,11 @@
 import { ErrorRequestHandler} from 'express';
 import { IGenericErrorMessage } from '../interfaces/error';
 import config from '../config';
-import handleValidationError from '../errors/validationError';
-import ApiError from '../errors/ApiError';
+import handleValidationError from '../errors/handleValidationError';
+import ApiError from '../errors/handleApiError';
 import { errorLogger } from '../shared/logger';
+import { ZodError } from 'zod';
+import handleZodError from '../errors/handleZodError';
 
 const globalErrorHandler : ErrorRequestHandler = (
     error, req, res, next
@@ -23,7 +25,13 @@ const globalErrorHandler : ErrorRequestHandler = (
         statusCode = simplifiedError.statusCode;
         message = simplifiedError.message;
         errorMessages = simplifiedError.errorMessages;
-      } else if (error instanceof ApiError) {
+      } else if(error instanceof ZodError){
+        const simplifiedError = handleZodError(error);
+        statusCode = simplifiedError.statusCode;
+        message = simplifiedError.message;
+        errorMessages = simplifiedError.errorMessages;
+      }
+      else if (error instanceof ApiError) {
         (statusCode = error?.statusCode),
           (message = error?.message),
           (errorMessages = error?.message

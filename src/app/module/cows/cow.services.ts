@@ -1,6 +1,6 @@
 
 
-import { IPaginationOptions } from "../../../interfaces/pagination";
+// import { IPaginationOptions } from "../../../interfaces/pagination";
 import { ICow } from "./cow.interface";
 import { Cow } from "./cow.model";
 
@@ -9,8 +9,9 @@ const createCow = async(payload:ICow): Promise<ICow> => {
     return result;
 }
 
-const getAllCow = async(paginationOptions : IPaginationOptions) => {
+const getAllCow = async(/* paginationOptions : IPaginationOptions */) => {
    const result = await Cow.find()
+   return result;
 }
 
 export const CowServices = {

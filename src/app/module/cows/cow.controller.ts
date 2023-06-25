@@ -26,8 +26,9 @@ const getAllCow = catchAsync(
 
         const paginationOptions = pick(req.query, paginationFields)
         console.log(paginationOptions)
-        
-        const result = await CowServices.getAllCow(paginationOptions);
+
+        const result = await CowServices.getAllCow();
+
         sendResponse(res, {
             statusCode: httpStatus.OK,
             success: true,

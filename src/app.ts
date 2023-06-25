@@ -1,9 +1,10 @@
 
 import express, { Application } from 'express'
 import cors from 'cors'
-import  { UserRoutes } from './app/module/users/user.route'
+
 import globalErrorHandler from './middlewares/globalErrorHandler'
-import { CowRoutes } from './app/module/cows/cow.route'
+
+import routes from './routes'
 /* import ApiError from './errors/ApiError' */
 
 const app: Application = express()
@@ -15,14 +16,13 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+// testing unhandled rejection
+
 /* app.use('/', ()=>{
     Promise.reject(new Error ('Unhandled Promise Rejection'))
 }) */
 
-// application routes
-app.use('/api/v1', UserRoutes)
-app.use('/api/v1', CowRoutes)
-
+app.use('/api/v1/', routes)
 
 app.use(globalErrorHandler)
 

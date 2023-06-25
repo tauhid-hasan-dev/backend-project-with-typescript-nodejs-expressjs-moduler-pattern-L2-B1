@@ -74,6 +74,11 @@
             "date": 1687640406466,
             "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\sucesses\\cow-hut-25-06-2023-00-success.log",
             "hash": "0b61ee7df6c50afba50dc383443b087787cea1e4a02ca6a1c27408c09ced8736"
+        },
+        {
+            "date": 1687684546330,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\sucesses\\cow-hut-25-06-2023-12-success.log",
+            "hash": "1f6cc36b4638ab58f1dbcee120c31f121d23b1e8c2091c18067dfa52a6a9de14"
         }
     ],
     "hashType": "sha256"

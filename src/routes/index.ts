@@ -4,9 +4,17 @@ import { CowRoutes } from '../app/module/cows/cow.route';
 
 const router = express.Router();
 
-/* const  */
+const moduleRoutes = [
+    {
+        path: '/',
+        route: UserRoutes
+    },
+    {
+        path: '/',
+        route: CowRoutes
+    },
+]
 
-router.use('/', UserRoutes);
-router.use('/', CowRoutes);
+moduleRoutes.forEach((route) => router.use(route.path, route.route))
 
 export default router

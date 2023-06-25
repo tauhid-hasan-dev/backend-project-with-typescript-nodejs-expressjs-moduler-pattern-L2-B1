@@ -1,5 +1,6 @@
 
 
+import { PaginationHelper } from "../../../helpers/paginationHelper";
 import { IGenericResponse } from "../../../interfaces/common";
 import { IPaginationOptions } from "../../../interfaces/pagination";
 import { ICow } from "./cow.interface";
@@ -12,20 +13,20 @@ const createCow = async(payload:ICow): Promise<ICow> => {
 
 
 const getAllCow = async(paginationOptions : IPaginationOptions): Promise<IGenericResponse<ICow[]>> => {
-   
-   const {page = 1, limit = 10 } = paginationOptions;
-   const skip = (page - 1 )*limit
+
+   const {page , limit, skip} = PaginationHelper.calculatePagination(paginationOptions)
 
    const result = await Cow.find().sort().skip(skip).limit(limit);
 
    const total = await Cow.countDocuments()
+
    return {
-    meta : {
-        page, 
-        limit,
-        total,
-    },
-    data: result
+        meta : {
+            page, 
+            limit,
+            total,
+        },
+        data: result
    };
 }
 

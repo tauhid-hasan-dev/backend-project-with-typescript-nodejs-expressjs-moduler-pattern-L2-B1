@@ -82,8 +82,15 @@ const getSingleCow = async(id: string ): Promise<ICow | null>=> {
   return result;
 }
 
+
+const deleteSingleCow = async(id: string ): Promise<ICow | null>=> {
+  const result = await Cow.findByIdAndDelete(id);
+  return result;
+}
+
 export const CowServices = {
     createCow,
     getAllCow,
-    getSingleCow
+    getSingleCow,
+    deleteSingleCow
 }

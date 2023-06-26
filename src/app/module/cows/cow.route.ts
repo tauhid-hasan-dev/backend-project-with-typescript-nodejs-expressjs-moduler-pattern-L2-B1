@@ -8,5 +8,6 @@ const cowRouter = express.Router();
 cowRouter.post('/cows', validateRequest(CowValidation.createCowZodSchema), CowController.createCow);
 cowRouter.get('/cows', CowController.getAllCow)
 cowRouter.get('/cows/:id', CowController.getSingleCow)
+cowRouter.delete('/cows/:id', CowController.deleteSingleCow)
 
 export const CowRoutes = cowRouter;

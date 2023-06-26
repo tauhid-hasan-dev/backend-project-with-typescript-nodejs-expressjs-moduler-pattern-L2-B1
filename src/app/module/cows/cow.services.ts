@@ -5,6 +5,7 @@ import { IGenericResponse } from "../../../interfaces/common";
 import { IPaginationOptions } from "../../../interfaces/pagination";
 import { ICow, ICowFilter } from "./cow.interface";
 import { Cow } from "./cow.model";
+import { cowsSearchableFields } from "./cow.constant";
 
 const createCow = async(payload:ICow): Promise<ICow> => {
     const result = await Cow.create(payload);
@@ -18,8 +19,6 @@ const getAllCow = async(filters : ICowFilter, paginationOptions : IPaginationOpt
 
    const andConditions = [];
 
-   const cowsSearchableFields = ['location', 'breed', 'category'];
-   
    // dynamic searching
    if(searchTerm){
     andConditions.push({

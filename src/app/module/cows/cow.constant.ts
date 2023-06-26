@@ -4,3 +4,4 @@ export const cowLocations: ILocations[] = ["Dhaka" , "Chattogram" , "Barishal" ,
 
 export const cowBreeds: IBreeds[] = ["Brahman" , "Nellore" , "Sahiwal" , "Gir" , "Indigenous" , "Tharparkar" , "Kankrej"]
 export const cowCategories: ICategory[] = ["Dairy" , "Beef" , "Dual Purpose"]
+export const cowsSearchableFields = ['location', 'breed', 'category'];

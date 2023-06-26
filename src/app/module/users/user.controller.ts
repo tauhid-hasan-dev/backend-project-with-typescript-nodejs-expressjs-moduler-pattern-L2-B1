@@ -10,13 +10,29 @@ const createUser = catchAsync(async(req: Request, res:Response )=> {
         const user = req.body;
         const result = await UserServices.createUser(user);
 
-        sendResponse(res, {
+        sendResponse<IUser | null>(res, {
                 statusCode : httpStatus.OK,
                 success: true,
                 message: 'Users created successfully',
                 data: result
         })       
 })
+
+
+const getAllUser = catchAsync(async(req: Request, res:Response )=> {    
+  
+        const result = await UserServices.getAllUser();
+
+        sendResponse<IUser[] | null>(res, {
+                statusCode : httpStatus.OK,
+                success: true,
+                message: 'Users retrieved successfully',
+                data: result
+        })       
+})
+
+
+
 
 const getSingleUser = catchAsync(
         async(req:Request, res: Response, next)=> {
@@ -34,5 +50,6 @@ const getSingleUser = catchAsync(
 
 export const UserController = {
     createUser,
-    getSingleUser
+    getSingleUser,
+    getAllUser
 }

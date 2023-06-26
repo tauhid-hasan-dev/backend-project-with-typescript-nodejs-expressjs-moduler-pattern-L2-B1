@@ -159,6 +159,11 @@
             "date": 1687808137171,
             "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-26-06-2023-22-error.log",
             "hash": "053f5e5afe61c7d6150ce245c111cdbe0ef22a69e27229c628ce936af54be3b3"
+        },
+        {
+            "date": 1687809612470,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-26-06-2023-23-error.log",
+            "hash": "a71d54e1f6c81b5400eb823a113054854659bc5abc987f0fa74420937c204410"
         }
     ],
     "hashType": "sha256"

@@ -15,10 +15,9 @@ const createCow = async(payload:ICow): Promise<ICow> => {
 
 const getAllCow = async(filters : ICowFilter, paginationOptions : IPaginationOptions): Promise<IGenericResponse<ICow[]>> => {
 
-   const {searchTerm} = filters;
-
+   const {searchTerm,  ...filtersData} = filters;
+   /* console.log(filtersData); */
    const andConditions = [];
-
    // dynamic searching
    if(searchTerm){
     andConditions.push({
@@ -32,8 +31,25 @@ const getAllCow = async(filters : ICowFilter, paginationOptions : IPaginationOpt
         })
     })
    }
-   
-    const {page , limit, skip, sortBy, sortOrder} = PaginationHelper.calculatePagination(paginationOptions);
+
+  const { minPrice, maxPrice, location } = filtersData;
+
+  if (minPrice !== undefined && maxPrice !== undefined) {
+    andConditions.push({ price: { $gte: minPrice, $lte: maxPrice } });
+  } else {
+    if (minPrice !== undefined) {
+      andConditions.push({ price: { $gte: minPrice } });
+    }
+    if (maxPrice !== undefined) {
+      andConditions.push({ price: { $lte: maxPrice } });
+    }
+  }
+
+  if (location !== undefined) {
+    andConditions.push({ location: location });
+  }
+
+   const {page , limit, skip, sortBy, sortOrder} = PaginationHelper.calculatePagination(paginationOptions);
    
    // dynamic sort condition (it will return a object with key-value pair)
    const sortConditions : {[key: string]: SortOrder} = {}
@@ -43,8 +59,10 @@ const getAllCow = async(filters : ICowFilter, paginationOptions : IPaginationOpt
    }
 
    const whereConditions = andConditions.length > 0 ? { $and: andConditions } : {};
-   
+   whereConditions.$and?.map(item => console.log(item))
+
    const result = await Cow.find(whereConditions).sort(sortConditions).skip(skip).limit(limit);
+
 
    // calculating total with countDocuments() method
    const total = await Cow.countDocuments()

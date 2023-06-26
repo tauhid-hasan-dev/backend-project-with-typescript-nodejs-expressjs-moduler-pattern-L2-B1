@@ -26,7 +26,7 @@ const getAllCow = catchAsync(
         
         const paginationOptions = pick(req.query, paginationFields);
 
-        const filters = pick(req.query, ['searchTerm']);
+        const filters = pick(req.query, ['searchTerm', 'location', 'maxPrice', 'minPrice']);
         console.log(paginationOptions);
         console.log(filters)
 

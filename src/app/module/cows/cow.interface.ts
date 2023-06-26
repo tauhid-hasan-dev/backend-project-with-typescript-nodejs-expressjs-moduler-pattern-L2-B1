@@ -4,7 +4,7 @@ export type ILocations = "Dhaka" | "Chattogram" | "Barishal" | "Rajshahi" | "Syl
 export type IBreeds = "Brahman" | "Nellore" | "Sahiwal" | "Gir" | "Indigenous" | "Tharparkar" | "Kankrej";
 export type ICategory = "Dairy" | "Beef" | "Dual Purpose"
 
-export type ICowFilter = {searchTerm: string};
+export type ICowFilter = {searchTerm: string, location: string, minPrice: number, maxPrice: number};
 
 export type ICow = {
     name: string,

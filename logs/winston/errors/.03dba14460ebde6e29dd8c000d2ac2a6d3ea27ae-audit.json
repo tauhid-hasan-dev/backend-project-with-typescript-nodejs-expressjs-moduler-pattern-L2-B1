@@ -164,6 +164,16 @@
             "date": 1687809612470,
             "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-26-06-2023-23-error.log",
             "hash": "a71d54e1f6c81b5400eb823a113054854659bc5abc987f0fa74420937c204410"
+        },
+        {
+            "date": 1687813340405,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-27-06-2023-00-error.log",
+            "hash": "d3d56d23c5096a7b760784ad852647c50ad3f4c87fca2f3f59c1f7de0b7a1742"
+        },
+        {
+            "date": 1687819563693,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\errors\\cow-hut-27-06-2023-01-error.log",
+            "hash": "e5d790b24bd38be29e919643af8da9c7e6b58b8bdcc93e8d94bb4ac07d6df380"
         }
     ],
     "hashType": "sha256"

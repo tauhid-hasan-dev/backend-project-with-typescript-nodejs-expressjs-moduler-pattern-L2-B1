@@ -3,7 +3,7 @@ import { SortOrder } from "mongoose";
 import { PaginationHelper } from "../../../helpers/paginationHelper";
 import { IGenericResponse } from "../../../interfaces/common";
 import { IPaginationOptions } from "../../../interfaces/pagination";
-import { ICow } from "./cow.interface";
+import { ICow, ICowFilter } from "./cow.interface";
 import { Cow } from "./cow.model";
 
 const createCow = async(payload:ICow): Promise<ICow> => {
@@ -11,18 +11,43 @@ const createCow = async(payload:ICow): Promise<ICow> => {
     return result;
 }
 
-const getAllCow = async(paginationOptions : IPaginationOptions): Promise<IGenericResponse<ICow[]>> => {
 
-   const {page , limit, skip, sortBy, sortOrder} = PaginationHelper.calculatePagination(paginationOptions);
+const getAllCow = async(filters : ICowFilter, paginationOptions : IPaginationOptions): Promise<IGenericResponse<ICow[]>> => {
 
+   const {searchTerm} = filters;
+
+   const andConditions = [];
+
+   const cowsSearchableFields = ['location', 'breed', 'category'];
+   
+   // dynamic searching
+   if(searchTerm){
+    andConditions.push({
+        $or: cowsSearchableFields.map((field)=> {
+            return {
+                [field]: {
+                    $regex: searchTerm,
+                    $options: 'i'
+                }
+            }
+        })
+    })
+   }
+   
+    const {page , limit, skip, sortBy, sortOrder} = PaginationHelper.calculatePagination(paginationOptions);
+   
+   // dynamic sort condition (it will return a object with key-value pair)
    const sortConditions : {[key: string]: SortOrder} = {}
 
    if(sortBy && sortOrder){
     sortConditions[sortBy] = sortOrder;
    }
 
-   const result = await Cow.find().sort(sortConditions).skip(skip).limit(limit);
+   const whereConditions = andConditions.length > 0 ? { $and: andConditions } : {};
+   
+   const result = await Cow.find(whereConditions).sort(sortConditions).skip(skip).limit(limit);
 
+   // calculating total with countDocuments() method
    const total = await Cow.countDocuments()
 
    return {

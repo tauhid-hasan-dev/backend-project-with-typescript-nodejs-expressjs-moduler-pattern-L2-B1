@@ -119,6 +119,16 @@
             "date": 1687723512635,
             "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\sucesses\\cow-hut-25-06-2023-23-success.log",
             "hash": "c41e7cb59fa0fb8a114ce41e6c4a3ffc9bd557af40f5df80410a83169d173ab3"
+        },
+        {
+            "date": 1687779654691,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\sucesses\\cow-hut-26-06-2023-14-success.log",
+            "hash": "0c85af963572e89b6f77ade86bfdd3cf7a87bf7f65d8358a9dadd6b6b44b5930"
+        },
+        {
+            "date": 1687781132460,
+            "name": "C:\\Assignments\\Level-2-assignment-3-tauhidhasan\\logs\\winston\\sucesses\\cow-hut-26-06-2023-15-success.log",
+            "hash": "e4f124e4dc25353934472761585a10949689b7bb6e46edc7a8dd09316658171e"
         }
     ],
     "hashType": "sha256"

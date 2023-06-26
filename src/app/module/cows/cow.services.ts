@@ -77,7 +77,13 @@ const getAllCow = async(filters : ICowFilter, paginationOptions : IPaginationOpt
    };
 }
 
+const getSingleCow = async(id: string ): Promise<ICow | null>=> {
+  const result = await Cow.findById(id);
+  return result;
+}
+
 export const CowServices = {
     createCow,
-    getAllCow
+    getAllCow,
+    getSingleCow
 }

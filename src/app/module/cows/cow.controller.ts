@@ -7,6 +7,7 @@ import sendResponse from "../../../shared/sendResponse";
 import httpStatus from "http-status";
 import pick from "../../../shared/pick";
 import { paginationFields } from "../../../constants/pagination";
+import { ICow } from "./cow.interface";
 
 const createCow = catchAsync(
     async(req:Request, res: Response, next)=> {
@@ -35,7 +36,7 @@ const getAllCow = catchAsync(
             paginationOptions
             );
 
-        sendResponse(res, {
+        sendResponse<ICow[] | null>(res, {
             statusCode: httpStatus.OK,
             success: true,
             message: 'Cows retrieved successfully',
@@ -46,8 +47,24 @@ const getAllCow = catchAsync(
 )
 
 
+const getSingleCow = catchAsync(
+    async(req:Request, res: Response, next)=> {
+        const id = req.params.id
+        const result = await CowServices.getSingleCow(id);
+
+        sendResponse<ICow | null>(res, {
+            statusCode: httpStatus.OK,
+            success: true,
+            message: 'Cow retrieved successfully',
+            data: result,
+        });
+    }
+)
+
+
 
 export const CowController = {
     createCow,
-    getAllCow
+    getAllCow,
+    getSingleCow
 }

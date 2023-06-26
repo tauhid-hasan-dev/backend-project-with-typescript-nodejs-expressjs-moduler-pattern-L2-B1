@@ -20,13 +20,22 @@ const getAllUser = async(): Promise<IUser[]>=> {
     const result = await User.find();
     return result;
   }
+
 const getSingleUser = async(id: string ): Promise<IUser | null>=> {
     const result = await User.findById(id);
     return result;
   }
 
+const deleteSingleUser = async(id: string ): Promise<IUser | null>=> {
+    const result = await User.findByIdAndDelete(id);
+    return result;
+}
+
+
+
 export const UserServices = {
     createUser,
     getSingleUser,
-    getAllUser
+    getAllUser,
+    deleteSingleUser
 }

@@ -8,5 +8,6 @@ const userRouter = express.Router();
 userRouter.post('/auth/signup', validateRequest(UserValidation.createUserZodSchema), UserController.createUser);
 userRouter.get('/users',  UserController.getAllUser);
 userRouter.get('/users/:id',  UserController.getSingleUser);
+userRouter.delete('/users/:id',  UserController.deleteSingleUser);
 
 export const UserRoutes = userRouter

@@ -9,6 +9,6 @@ userRouter.post('/auth/signup', validateRequest(UserValidation.createUserZodSche
 userRouter.get('/users',  UserController.getAllUser);
 userRouter.get('/users/:id',  UserController.getSingleUser);
 userRouter.delete('/users/:id',  UserController.deleteSingleUser);
-userRouter.patch('/users/:id',  UserController.updateSingleUser);
+userRouter.patch('/users/:id',  validateRequest(UserValidation.updateUserZodSchema),UserController.updateSingleUser);
 
 export const UserRoutes = userRouter

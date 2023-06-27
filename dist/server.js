@@ -15,18 +15,49 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const app_1 = __importDefault(require("./app"));
 const index_1 = __importDefault(require("./config/index"));
+// we are handling uncaught exception error(synchronous error) here, because bootstrap is a async function
+process.on('uncaughtException', error => {
+    /*  errorLogger.error(error); */
+    console.log(error);
+    process.exit(1);
+});
+let server;
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield mongoose_1.default.connect(index_1.default.database_url);
+            // logger.info('Database connected successfully')
             console.log('Database connected successfully');
-            app_1.default.listen(index_1.default.port, () => {
+            server = app_1.default.listen(index_1.default.port, () => {
                 console.log(`Application listening on port ${index_1.default.port}`);
             });
         }
         catch (err) {
-            console.log('Failed to connect to database', err);
+            // errorLogger.error('Failed to connect to database', err)
+            console.error('Failed to connect to database', err);
         }
+        process.on('unhandledRejection', error => {
+            /*  errorLogger.error(error); */
+            console.log(error);
+            if (server) {
+                server.close(() => {
+                    // with this errorLogger we will understand the details, what is the reasons for stopping our server
+                    /* errorLogger.error(error); */
+                    process.exit(1);
+                });
+            }
+            else {
+                process.exit(1);
+            }
+        });
     });
 }
 bootstrap();
+// if for any reason server crashed we can know the reason behind this
+process.on('SIGTERM', () => {
+    // logger.info('SIGTERM is received');
+    console.log('SIGTERM is received');
+    if (server) {
+        server.close();
+    }
+});

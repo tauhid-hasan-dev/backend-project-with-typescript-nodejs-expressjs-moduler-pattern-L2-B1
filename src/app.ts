@@ -28,6 +28,10 @@ app.use('/api/v1/', routes)
 app.use(globalErrorHandler)
 
 //  handle not found route
+app.get('/', (req, res) => {
+  res.send('Cow-hut-by-tauhid-hasan: Server is running...........')
+})
+
 app.use((req: Request, res: Response, next: NextFunction) => {
     res.status(httpStatus.NOT_FOUND).json({
       success: false,

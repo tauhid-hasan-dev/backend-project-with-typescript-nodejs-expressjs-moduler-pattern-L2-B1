@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserServices = void 0;
 const config_1 = __importDefault(require("../../../config"));
+const ApiError_1 = __importDefault(require("../../../errors/ApiError"));
 const user_model_1 = require("./user.model");
 const createUser = (user) => __awaiter(void 0, void 0, void 0, function* () {
     if (!user.password) {
@@ -21,10 +22,25 @@ const createUser = (user) => __awaiter(void 0, void 0, void 0, function* () {
     }
     const createdUser = yield user_model_1.User.create(user);
     if (!createUser) {
-        throw new Error('Failed! User could not be created');
+        throw new ApiError_1.default(400, 'Failed! User could not be created');
     }
     return createdUser;
 });
+const getAllUser = () => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield user_model_1.User.find();
+    return result;
+});
+const getSingleUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield user_model_1.User.findById(id);
+    return result;
+});
+const deleteSingleUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield user_model_1.User.findByIdAndDelete(id);
+    return result;
+});
 exports.UserServices = {
     createUser,
+    getSingleUser,
+    getAllUser,
+    deleteSingleUser
 };

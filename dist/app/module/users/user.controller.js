@@ -15,25 +15,50 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const user_services_1 = require("./user.services");
 const http_status_1 = __importDefault(require("http-status"));
-const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const { user } = req.body;
-        // console.log(user)
-        const result = yield user_services_1.UserServices.createUser(user);
-        res.status(400).json({
-            statusCode: http_status_1.default.OK,
-            success: true,
-            message: 'User created successfully',
-            data: result
-        });
-    }
-    catch (error) {
-        res.status(400).json({
-            success: false,
-            message: 'Failed to create user',
-        });
-    }
-});
+const catchAsync_1 = __importDefault(require("../../../shared/catchAsync"));
+const sendResponse_1 = __importDefault(require("../../../shared/sendResponse"));
+const createUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = req.body;
+    const result = yield user_services_1.UserServices.createUser(user);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Users created successfully',
+        data: result
+    });
+}));
+const getAllUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield user_services_1.UserServices.getAllUser();
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Users retrieved successfully',
+        data: result
+    });
+}));
+const getSingleUser = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
+    const result = yield user_services_1.UserServices.getSingleUser(id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'User retrieved successfully',
+        data: result,
+    });
+}));
+const deleteSingleUser = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
+    const result = yield user_services_1.UserServices.deleteSingleUser(id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'User deleted successfully',
+        data: result,
+    });
+}));
 exports.UserController = {
     createUser,
+    getSingleUser,
+    getAllUser,
+    deleteSingleUser
 };

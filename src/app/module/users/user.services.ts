@@ -26,16 +26,24 @@ const getSingleUser = async(id: string ): Promise<IUser | null>=> {
     return result;
   }
 
+
+const updateSingleUser = async(id: string , payload: Partial<IUser>): Promise<IUser | null>=> {
+  const result = await User.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return result;
+  }
+
 const deleteSingleUser = async(id: string ): Promise<IUser | null>=> {
     const result = await User.findByIdAndDelete(id);
     return result;
 }
 
 
-
 export const UserServices = {
     createUser,
     getSingleUser,
     getAllUser,
-    deleteSingleUser
+    deleteSingleUser,
+    updateSingleUser
 }

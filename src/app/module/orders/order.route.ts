@@ -5,7 +5,7 @@ import { OrderController } from './order.controller';
 const orderRouter = express.Router();
 
 orderRouter.post('/orders',  OrderController.createOrder);
-/* cowRouter.get('/orders', OrderController.getAllOrder) */
+orderRouter.get('/orders', OrderController.getAllOrder)
 
 
 export const OrderRoutes = orderRouter;

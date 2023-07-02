@@ -63,9 +63,13 @@ const createOrder = async(order:IOrder):Promise<IOrder | null> => {
     return newOrder;
 }
 
-
+const getAllOrder = async(): Promise<IOrder[] | null>=> {
+    const result = await Order.find().populate('cow').populate('buyer');
+    return result;
+}
 
 
 export const OrderServices = {
    createOrder,
+   getAllOrder
 }

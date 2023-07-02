@@ -13,5 +13,5 @@ userRouter.post('/auth/signup', (0, validateRequest_1.default)(user_validation_1
 userRouter.get('/users', user_controller_1.UserController.getAllUser);
 userRouter.get('/users/:id', user_controller_1.UserController.getSingleUser);
 userRouter.delete('/users/:id', user_controller_1.UserController.deleteSingleUser);
-userRouter.patch('/users/:id', user_controller_1.UserController.updateSingleUser);
+userRouter.patch('/users/:id', (0, validateRequest_1.default)(user_validation_1.UserValidation.updateUserZodSchema), user_controller_1.UserController.updateSingleUser);
 exports.UserRoutes = userRouter;

@@ -2,9 +2,7 @@
 
 ### Github Private Repository: https://github.com/Programming-Hero-Web-Course4/l2a3-cow-hut-backend-assignment-tauhid-hasan-dev
 ### Live Link: https://digital-cow-hut-backend-blue.vercel.app
-
-This is the backend for an Online Cow Selling platform in preparation for Eid Ul Adha. The main focus of this assignment is to implement error handling, CRUD operations, pagination and filtering, transactions (including a simple transaction without a payment gateway), and additional routes as necessary. 
-
+---
 ### Important features of this project:
 
 - Implement error handling
@@ -17,7 +15,7 @@ This is the backend for an Online Cow Selling platform in preparation for Eid Ul
 - TypeScript as the programming language.
 - Express.js as the web framework.
 - Mongoose as the Object Data Modeling (ODM) and validation library for MongoDB.
-
+---
 ### Application Routes:
 
    #### User

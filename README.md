@@ -39,9 +39,9 @@ This is the backend for an Online Cow Selling platform in preparation for Eid Ul
 
    - api/v1/cows?pag=1&limit=10
    - api/v1/cows?sortBy=price&sortOrder=asc
-   - api/v1/cows?minPrice=20000&maxPrice=70000
-   - api/v1/cows?location=Chattogram
-   - api/v1/cows?searchTerm=Cha
+   - api/v1/cows?minPrice=20000&maxPrice=50000
+   - api/v1/cows?location=Barishal
+   - api/v1/cows?searchTerm=Bari
      
   
    #### Orders

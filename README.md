@@ -1,4 +1,4 @@
-# Digital Cow Hut Backend Assignment - Tauhid Hasan
+# Digital Cow Hut Backend Project - Tauhid Hasan
 
 ### Github Private Repository: https://github.com/Programming-Hero-Web-Course4/l2a3-cow-hut-backend-assignment-tauhid-hasan-dev
 ### Live Link: https://digital-cow-hut-backend-blue.vercel.app

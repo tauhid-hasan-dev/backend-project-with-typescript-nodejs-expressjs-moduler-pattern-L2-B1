@@ -29,7 +29,7 @@ app.use(globalErrorHandler)
 
 //  handle not found route
 app.get('/', (req, res) => {
-  res.send('Cow-hut-by-tauhid-hasan: Server is running...........')
+  res.send('Backend-Project-by-tauhid-hasan: Server is running...........')
 })
 
 app.use((req: Request, res: Response, next: NextFunction) => {

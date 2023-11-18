@@ -23,7 +23,7 @@ app.use('/api/v1/', routes_1.default);
 app.use(globalErrorHandler_1.default);
 //  handle not found route
 app.get('/', (req, res) => {
-    res.send('Cow-hut-by-tauhid-hasan: Server is running...........');
+    res.send('Backend-project-by-tauhid-hasan: Server is running...........');
 });
 app.use((req, res, next) => {
     res.status(http_status_1.default.NOT_FOUND).json({
